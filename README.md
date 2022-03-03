@@ -1,5 +1,5 @@
-# liceointernship-deploy-docker
-Material para clases introductorias de Git y Github para las prácticas en el Liceo La Paz.
+# Liceo Internship Deploy Docker
+Material para clases introductorias de despligue de aplicaciones Symfony con Docker para las prácticas en el Liceo La Paz.
 
 https://braisarias.github.io/liceointernship-deploy-docker/
 
