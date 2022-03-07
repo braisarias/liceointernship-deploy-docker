@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="Author" content="Brais Arias Rio" />
+
+  <title>Introducción a Docker - Despliegue de aplicaciones Symfony con Docker</title>
+
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="reveal.js/dist/theme/black.css" id="theme">
+
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="portada">
+        <h2>Introducción a <em>Docker</em> y despliegue de aplicaciones <em>Symfony</em></h2>
+        <p>Brais Arias Rio</p>
+        <p>(profesor en prácticas)</p>
+        <p>Liceo La Paz</p>
+        <p><a
+            href="https://braisarias.github.io/liceointernship-deploy-docker/">https://braisarias.github.io/liceointernship-deploy-docker/</a>
+        </p>
+        <p><img src="img/cc-by-sa-88x31.png" alt="Licencia CC BY-SA" width="88" height="31"></p>
+      </section>
+
+      <section>
+        <h2>Quien soy?</h2>
+        <p>Ingeniero <em>informático</em></p>
+        <p>Consultor de <em>software libre</em> / SysAdmin en <a href="https://icarto.es/">iCarto</a>
+        </p>
+        <p>Oficina de <em>Software Libre</em> de la AMTEGA (Xunta)</p>
+        <p><em>Mancomún</em> <a href="https://archive.org/details/Mancomun_Podcast">Podcast</a></p>
+        <p><em>Asociacionismo</em>: <a href="https://gpul.org/">GPUL</a> - <a href="https://www.kde-espana.org/">KDE
+            España</a></p>
+        <p>(Ahora) también estudio <em>Русский язык</em> (ruso)</p>
+      </section>
+
+      <section>
+        <h2>Qué es <em>Docker</em>?</h2>
+        <ul>
+          <li>Sistema de virtualización</li>
+          <li>Basado en contenedores</li>
+
+          <li>Software libre (Apachev2)</li>
+
+          <li><a href="https://www.docker.com/">https://www.docker.com/</a></li>
+        </ul>
+        <img src="img/Docker_Container_Engine_logo.png" height="5%" alt="Logo de Docker" />
+      </section>
+
+      <section>
+        <h2>Usos de <em>Docker</em></h2>
+        <ul>
+          <li>Automatización de despliegues</li>
+          <li>Aislamiento y seguridad de aplicaciones</li>
+          <li>Entorno de pruebas</li>
+        </ul>
+        <img src="img/Docker_Container_Engine_logo.png" height="5%" alt="Logo de Docker" />
+      </section>
+
+      <section>
+        <h2><em>Contenedores</em> vs <em>Máquinas virtuales</em></h2>
+        <img src="img/vm_vs_container_arch.png" width="90%" alt="Comparing Virtual Machines and Containers" />
+        <small class="caption">Comparing Virtual Machines and Containers. Source:
+          https://medium.com/@faizanbashir/docker-containers-101-e47f594a0ed</small>
+      </section>
+
+      <section>
+        <h2><em>Contenedores</em> vs <em>Máquinas virtuales</em></h2>
+        <img src="img/vm_vs_container_ram.jpg" width="80%" alt="Memory consumption of VMs vs Dockers" />
+        <small class="caption">Memory consumption of VMs vs Dockers. Source:
+          https://devopedia.org/docker</small>
+      </section>
+
+      <section>
+        <h2>Componentes de <em>Docker</em></h2>
+        <ul>
+          <li><em>Docker Engine</em>: Núcleo de Docker, gestiona la creación, ejecución, etc de loc contenedores</li>
+          <li><em>Docker Hub</em>: Repositorio oficial de imágenes de Docker</li>
+          <li><em>Docker Compose</em>: Herramienta para definir aplicaciones/sistemas compuesto de contenedores</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Qué se maneja con <em>Docker</em>?</h2>
+        <ul>
+          <li><em>Imágenes</em>: plantilla estática para creación de contenedores
+            <ul>
+              <li>Dockerfile: <a
+                  href="https://github.com/bitnami/bitnami-docker-symfony/blob/master/5.4/debian-10/Dockerfile">ejemplo</a>
+              </li>
+            </ul>
+          </li>
+          <li><em>Contenedores</em>: espacios aislados para ejecutar y lanzar aplicaciones</li>
+          <li><em>Volúmenes</em>: espacios para mantener información más allá de la vida de un contenedor</li>
+          <li>Red y mapeo de puertos: para poder acceder a servicios de dentro del contenedor</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Instalación de Docker en GNU/Linux</h2>
+        <p class="command">sudo apt-get install -y docker.io</p>
+
+        <p><img src="img/install_docker.png" width="100%" alt="Instalación de Docker en Debian" /></p>
+      </section>
+
+      <section>
+        <h2>Instalación de Docker Compose en GNU/Linux</h2>
+        <p class="command">sudo apt-get install -y docker-compose</p>
+
+        <p><img src="img/install_docker_compose.png" width="100%" alt="Instalación de Docker en Debian" /></p>
+      </section>
+
+      <section>
+        <h2>Comandos básicos de Docker</h2>
+        <ul>
+          <li><span class="command">docker start &lt;contenedor&gt;:</span> <span class="desc">Inicia un
+              contenedor</span></li>
+          <li><span class="command">docker run &lt;image&gt; &lt;comando&gt;:</span> <span class="desc">Inicia un
+              nuevo contenedor de la imagen <em>image</em> y lanza en el un comando</span></li>
+          <li><span class="command">docker pull &lt;image&gt;:</span> <span class="desc">Obtiene del repositorio la
+              imagen</span></li>
+          <li><span class="command">docker ps [-a]:</span> <span class="desc">Lista los contenedores</span></li>
+          <li><span class="command">docker rm &lt;contenedor&gt;:</span> <span class="desc">Elimina el contenedor</span>
+          </li>
+          <li><span class="command">docker port &lt;contenedor&gt;:</span> <span class="desc">Lista el mapeo de puertos
+              del contenedor</span></li>
+          <li><span class="command">docker stop &lt;nombre&gt;:</span> <span class="desc">Para un contenedor</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Despliegue de Aplicación Symfony con Docker</h2>
+        <ol>
+          <li>Proyecto Symfony funcionando</li>
+          <li>Creamos fichero de docker-compose</li>
+          <li>Ejecutamos <span class="command">docker-compose up</span></li>
+          <li>Configuración de Apache como proxy inverso</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Proyecto Symfony</h2>
+
+        <p>Usamos el proyecto que queramos. En este ejemplo: <a
+            href="https://github.com/braisarias/my-luckynumber-symfony">https://github.com/braisarias/my-luckynumber-symfony</a>.
+        </p>
+
+      </section>
+
+      <section>
+        <h2>Fichero de configuración</h2>
+        <p>En el <span class="command">docker-compose.yml</span> (<a
+            href="https://github.com/braisarias/my-luckynumber-symfony/blob/main/docker-compose.yml">ejemplo</a>) se
+          define que necesita nuestra aplicación, por ejemplo:
+        </p>
+        <ul>
+          <li>Apache</li>
+          <li>PHP</li>
+          <li>Symfony</li>
+          <li>MySQL / MariaDB / PostgreSQL</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Construír contenedor y ejecutarlo</h2>
+        <p>Con el comando <span class="command">docker-compose up</span> se construye(n) y se lanza(n) el/los
+          contenedor(es) necesarios</p>
+
+      </section>
+
+      <section>
+        <h2>Proxy inverso</h2>
+        <p>Si tenemos varias aplicaciones en nuestro servidor necesitaremos seguramente un Proxy Inverso</p>
+        <p><img src="img/reverse-proxy-arch.png" height="100%" alt="Instalación de Docker en Debian"
+            style="background-color: white;" /></p>
+        <small class="caption">Implementación de Proxy Inverso. Source:
+          <a
+            href="https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html">https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html</a></small>
+      </section>
+
+
+      <section id="contraPortada">
+        <h2>Introducción a <em>Docker</em> y despliegue de aplicaciones <em>Symfony</em></h2>
+        <p>Brais Arias Rio</p>
+        <p>(profesor en prácticas)</p>
+        <p>Liceo La Paz</p>
+        <p><a
+            href="https://braisarias.github.io/liceointernship-deploy-docker/">https://braisarias.github.io/liceointernship-deploy-docker/</a>
+        </p>
+        <p><img src="img/cc-by-sa-88x31.png" alt="Licencia CC BY-SA" width="88" height="31"></p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="authors">
+    <div style="position:absolute; left: 45px; bottom: 45px;">
+      <ul style="clear:both; color: #666;">
+        <li style="display: inline-block;">Brais Arias Rio</li>
+        <li style="display: inline-block;">(Profesor en prácticas)</li> -
+        <li style="display: inline-block;"><a href="https://www.liceolapaz.com/" target="_blank"
+            style="color: #996">Liceo La Paz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>

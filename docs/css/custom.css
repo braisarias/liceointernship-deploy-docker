@@ -1,0 +1,32 @@
+.img .img-center {
+  display: block;
+  margin: auto;
+}
+.img{
+  padding: 5px;
+  background-color: white;
+}
+.command{
+  font-family: monospace;
+  font-size: 0.9em;
+  color:dodgerblue;
+}
+.command-br{
+  font-family: monospace;
+  font-size: 0.8em;
+}
+.desc{
+  font-size: 0.7em;
+}
+
+.based{
+  font-size: 0.5em;
+}
+
+.caption{
+  margin-top: -30px;
+}
+
+.reveal em{
+  color: coral;
+}
