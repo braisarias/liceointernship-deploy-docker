@@ -8,7 +8,14 @@
 }
 .command{
   font-family: monospace;
-  font-size: 0.9em;
+}
+.peque{
+  font-size: 0.8em;
+}
+.mais-peque{
+  font-size: 0.6em;
+}
+.azul{
   color:dodgerblue;
 }
 .command-br{

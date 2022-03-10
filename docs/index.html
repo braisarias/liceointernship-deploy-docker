@@ -49,8 +49,8 @@
       <section>
         <h2>Qué es <em>Docker</em>?</h2>
         <ul>
-          <li>Sistema de virtualización</li>
-          <li>Basado en contenedores</li>
+          <li>Sistema de <em>virtualización</em></li>
+          <li>Basado en <em>contenedores</em></li>
 
           <li>Software libre (Apachev2)</li>
 
@@ -86,77 +86,139 @@
       <section>
         <h2>Componentes de <em>Docker</em></h2>
         <ul>
-          <li><em>Docker Engine</em>: Núcleo de Docker, gestiona la creación, ejecución, etc de loc contenedores</li>
-          <li><em>Docker Hub</em>: Repositorio oficial de imágenes de Docker</li>
-          <li><em>Docker Compose</em>: Herramienta para definir aplicaciones/sistemas compuesto de contenedores</li>
+          <li><em>Docker Engine</em>: <span class="peque">Núcleo de Docker, gestiona la creación, ejecución, etc de loc
+              contenedores</span></li>
+          <li><em>Docker Hub</em>: <span class="peque">Repositorio oficial de imágenes de Docker</span></li>
+          <li><em>Docker Compose</em>: <span class="peque">Herramienta para definir aplicaciones/sistemas compuesto de
+              contenedores</span></li>
         </ul>
       </section>
 
       <section>
         <h2>Qué se maneja con <em>Docker</em>?</h2>
         <ul>
-          <li><em>Imágenes</em>: plantilla estática para creación de contenedores
+          <li><em>Imágenes</em>: <span class="peque">plantilla estática para creación de contenedores</span>
             <ul>
               <li>Dockerfile: <a
                   href="https://github.com/bitnami/bitnami-docker-symfony/blob/master/5.4/debian-10/Dockerfile">ejemplo</a>
               </li>
             </ul>
           </li>
-          <li><em>Contenedores</em>: espacios aislados para ejecutar y lanzar aplicaciones</li>
-          <li><em>Volúmenes</em>: espacios para mantener información más allá de la vida de un contenedor</li>
-          <li>Red y mapeo de puertos: para poder acceder a servicios de dentro del contenedor</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Instalación de Docker en GNU/Linux</h2>
-        <p class="command">sudo apt-get install -y docker.io</p>
-
-        <p><img src="img/install_docker.png" width="100%" alt="Instalación de Docker en Debian" /></p>
-      </section>
-
-      <section>
-        <h2>Instalación de Docker Compose en GNU/Linux</h2>
-        <p class="command">sudo apt-get install -y docker-compose</p>
-
-        <p><img src="img/install_docker_compose.png" width="100%" alt="Instalación de Docker en Debian" /></p>
-      </section>
-
-      <section>
-        <h2>Comandos básicos de Docker</h2>
-        <ul>
-          <li><span class="command">docker start &lt;contenedor&gt;:</span> <span class="desc">Inicia un
-              contenedor</span></li>
-          <li><span class="command">docker run &lt;image&gt; &lt;comando&gt;:</span> <span class="desc">Inicia un
-              nuevo contenedor de la imagen <em>image</em> y lanza en el un comando</span></li>
-          <li><span class="command">docker pull &lt;image&gt;:</span> <span class="desc">Obtiene del repositorio la
-              imagen</span></li>
-          <li><span class="command">docker ps [-a]:</span> <span class="desc">Lista los contenedores</span></li>
-          <li><span class="command">docker rm &lt;contenedor&gt;:</span> <span class="desc">Elimina el contenedor</span>
+          <li><em>Contenedores</em>: <span class="peque">espacios aislados para ejecutar y lanzar aplicaciones</span>
           </li>
-          <li><span class="command">docker port &lt;contenedor&gt;:</span> <span class="desc">Lista el mapeo de puertos
-              del contenedor</span></li>
-          <li><span class="command">docker stop &lt;nombre&gt;:</span> <span class="desc">Para un contenedor</span></li>
+          <li><em>Volúmenes</em>: <span class="peque">espacios para mantener información más allá de la vida de un
+              contenedor</span></li>
+          <li><em>Red</em> y mapeo de puertos: <span class="peque">para poder acceder a servicios de dentro del
+              contenedor</span>
+          </li>
         </ul>
       </section>
 
       <section>
-        <h2>Despliegue de Aplicación Symfony con Docker</h2>
-        <ol>
+        <h2><em>Comandos</em> básicos de Docker</h2>
+        <ul>
+          <li><span class="command peque azul">docker start &lt;contenedor&gt;:</span> <span class="mais-peque">Inicia
+              un <em>contenedor</em></span></li>
+          <li><span class="command peque azul">docker run &lt;image&gt; &lt;comando&gt;:</span> <span
+              class="mais-peque">Inicia un
+              nuevo contenedor de la imagen <em>image</em> y lanza en el un comando</span></li>
+          <li><span class="command peque azul">docker pull &lt;image&gt;:</span> <span class="mais-peque">Obtiene del
+              <em>repositorio</em> la imagen</span></li>
+          <li><span class="command peque azul">docker ps [-a]:</span> <span class="mais-peque"><em>Lista</em> los
+              contenedores</span>
+          </li>
+          <li><span class="command peque azul">docker rm &lt;contenedor&gt;:</span> <span
+              class="mais-peque"><em>Elimina</em> el contenedor</span>
+          </li>
+          <li><span class="command peque azul">docker port &lt;contenedor&gt;:</span> <span class="desc">Lista el
+              <em>mapeo de puertos</em> del contenedor</span></li>
+          <li><span class="command peque azul">docker stop &lt;nombre&gt;:</span> <span class="desc"><em>Para</em> un
+              contenedor</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Despliegue de Aplicación <em>Symfony</em> con <em>Docker</em></h2>
+        <p class="peque">De forma general para desplegar aplicaciones Symfony:</p>
+        <ol class="peque">
           <li>Proyecto Symfony funcionando</li>
-          <li>Creamos fichero de docker-compose</li>
-          <li>Ejecutamos <span class="command">docker-compose up</span></li>
+          <li>Creamos/editamos fichero de docker-compose</li>
+          <li>Ejecutamos <span class="command peque azul">docker-compose up</span></li>
           <li>Configuración de Apache como proxy inverso</li>
         </ol>
+        <p>Más información <a href="https://symfony.com/doc/current/setup/docker.html">aquí</a></p>
       </section>
+
+      <section>
+        <h2>Taller práctico</h2>
+        <p class="peque">Como vamos a usar una máquina <em>Debian 10</em> para nuestro despliegue debemos realizar
+          algunas cosas a mayores</p>
+        <p>Vamos a seguir la <a href="https://symfony.com/doc/current/setup.html#technical-requirements">guía de
+            instalación de Symfony</a></p>
+      </section>
+
+      <section>
+        <h2>Instalación de <em>PHP 8</em> en Debian</h2>
+
+        <p>Debemos tener <em>PHP versión 8</em></p>
+        <p>Comprobar versión de PHP: <span class="command azul peque">php --version</span> </p>
+        <p>Para instalar PHP versión 8 en Debian 10 <a
+            href="https://computingforgeeks.com/how-to-install-php-on-debian-linux/">seguimos esta guía</a></p>
+      </section>
+
+      <section>
+        <h2>Instalación de <em>Composer</em></h2>
+
+        <p>Debemos tener instalado el <em>Composer</em> correspondiente a la versión PHP</p>
+
+        <p>Para instalar Composer en Debian 10 <a
+            href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos">seguimos esta guía</a>
+        </p>
+        <p>A mayores no está demás hacer esto:<br /><span class="command azul mais-peque">sudo ln -s
+            /usr/local/bin/composer
+            /bin/composer</span></p>
+      </section>
+
+      <section>
+        <h2>Instalación de <em>Symfony CLI></em></h2>
+
+        <p><em>Symfony CLI</em> (Command Line Interface) se utiliza para poder lanzar los comandos de Symfony</p>
+        <p>Para instalar Symfony-CLI <a href="https://symfony.com/download#step-1-install-symfony-cli">seguimos esta
+            guía</a>
+        </p>
+        <p>Para comprobar que está correctamente instalado podemos crear un proyecto nuevo:<br />
+          <span class="command azul peque">symfony new my_project</span>
+        </p>
+      </section>
+
+      <section>
+        <h2>Configurar <em>usuario de Git</em></h2>
+        <p>Al intentar crear un proyecto nuevo podemos ver que nos protesta al no tener git configurado: <br />
+          <span class="command azul mais-peque">git config --global user.name "Your Name"</span>
+          <br />
+          <span class="command azul mais-peque">git config --global user.email "youremail@yourdomain.com"</span>
+        </p>
+      </section>
+
+      <section>
+        <h2>¡<em>OJO</em>! ¿Nos hemos <em>olvidado</em> de algo?</h2>
+        <p class="peque">En clase nos falla la aplicación Symfony porque no hemos instalado algunos de los módulos
+          extra que nos recomienda Symfony:
+        </p>
+        <img src="img/symfony-php-extra.png" width="70%" alt="Detalle de la página de Symfony" />
+        <p class="peque">Podemos instalar estos módulos de PHP de esta forma:<br />
+          <span class="command azul mais-peque">sudo apt install -y php8.0-simplexml php8.0-tokenizer php8.0-iconv
+            php8.0-ctype</span>
+        </p>
+      </section>
+
 
       <section>
         <h2>Proyecto Symfony</h2>
-
-        <p>Usamos el proyecto que queramos. En este ejemplo: <a
-            href="https://github.com/braisarias/my-luckynumber-symfony">https://github.com/braisarias/my-luckynumber-symfony</a>.
+        <p>Usamos el proyecto que queramos. En este ejemplo:<br />
+          <a class="peque"
+            href="https://github.com/braisarias/my-luckynumber-symfony">https://github.com/braisarias/my-luckynumber-symfony</a>
         </p>
-
       </section>
 
       <section>
@@ -174,20 +236,96 @@
       </section>
 
       <section>
-        <h2>Construír contenedor y ejecutarlo</h2>
-        <p>Con el comando <span class="command">docker-compose up</span> se construye(n) y se lanza(n) el/los
-          contenedor(es) necesarios</p>
+        <h2>Configuramos con <em>symfony-docker</em></h2>
+        <p>Antes de lanzar nuestra aplicación con Docker, la vamos a configurar y ejecutar según nos <a
+            href="https://github.com/dunglas/symfony-docker/blob/main/docs/existing-project.md">dice la
+            documentación</a>
+        </p>
+      </section>
+      <section>
+        <h2><em>Construír</em> contenedor y <em>ejecutarlo</em></h2>
+        <p class="peque">Como último paso ejecutamos el contenedor</p>
+        <p class="peque">Con el comando <span class="command azul">docker-compose up -d</span> se construye(n) y se
+          lanza(n) el/los contenedor(es) necesarios en segundo plano
+        </p>
+      </section>
 
+      <section>
+        <h2>¡Ya <em>está</em>!</h2>
+        <p class="peque">
+          Ya está desplegada nuestra aplicación, podemos probarla accediendo a la URL:<br /> <a class="command"
+            href="http://localhost/">http://localhost/</a>
+        </p>
       </section>
 
       <section>
         <h2>Proxy inverso</h2>
-        <p>Si tenemos varias aplicaciones en nuestro servidor necesitaremos seguramente un Proxy Inverso</p>
+        <p>Si tenemos varias aplicaciones en nuestro servidor seguramente necesitaremos un <em>Proxy Inverso</em></p>
         <p><img src="img/reverse-proxy-arch.png" height="100%" alt="Instalación de Docker en Debian"
             style="background-color: white;" /></p>
         <small class="caption">Implementación de Proxy Inverso. Source:
           <a
             href="https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html">https://httpd.apache.org/docs/2.4/howto/reverse_proxy.html</a></small>
+      </section>
+
+      <section>
+        <h2>Continuar con Docker</h2>
+        <ul>
+          <li>
+            edX:
+            <ul>
+              <li><a
+                  href="https://www.edx.org/professional-certificate/linuxfoundationx-introduction-to-devops-practices-and-tools">Programa
+                  formativo introductorio a DevOps</a> con posibilidad de certificado</li>
+              <li>
+                <a href="https://www.edx.org/course/introduction-to-cloud-infrastructure-technologies">Curso
+                  Introducción a tecnologías de infraestructura cloud</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Continuar con Docker</h2>
+        <ul>
+          <li>
+            Coursera:
+            <ul>
+              <li><a href="https://www.coursera.org/projects/docker-for-absolute-beginners">Proyecto guiado de Docker
+                  para
+                  principiantes</a></li>
+              <li>
+                <a href="https://www.coursera.org/projects/containerization-using-docker">Proyecto guiado de
+                  containerización con Docker</a>
+              </li>
+              <li>
+                <a href="https://www.coursera.org/learn/introduccion-a-contenedores-con-docker">Curso de Introducción a
+                  Contenedores con Docker y Kubernetes</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Continuar con Docker</h2>
+        <ul>
+          <li>Openwebinars:
+            <ul>
+              <li>
+                <a href="https://openwebinars.net/cursos/docker-kubernetes-openshift/">Taller de Docker, Kubernetes y
+                  Openshift</a>
+              </li>
+              <li>
+                <a href="https://openwebinars.net/cursos/docker/">Curso de Docker para Desarrolladores</a>
+              </li>
+              <li>
+                <a href="https://openwebinars.net/cursos/docker-introduccion/"> Curso de Introducción a Docker </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </section>
 
 
