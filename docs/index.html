@@ -89,8 +89,14 @@
           <li><em>Docker Engine</em>: <span class="peque">Núcleo de Docker, gestiona la creación, ejecución, etc de loc
               contenedores</span></li>
           <li><em>Docker Hub</em>: <span class="peque">Repositorio oficial de imágenes de Docker</span></li>
-          <li><em>Docker Compose</em>: <span class="peque">Herramienta para definir aplicaciones/sistemas compuesto de
-              contenedores</span></li>
+          <li><em>Docker Compose</em>: <span class="peque">Herramienta para definir aplicaciones/sistemas compuestos de
+              contenedores</span>
+            <ul>
+              <li class="peque"><span class="command peque">docker-compose.yml</span>: <a
+                  href="https://github.com/braisarias/my-luckynumber-symfony/blob/main/docker-compose.yml">ejemplo</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </section>
 
@@ -99,7 +105,7 @@
         <ul>
           <li><em>Imágenes</em>: <span class="peque">plantilla estática para creación de contenedores</span>
             <ul>
-              <li>Dockerfile: <a
+              <li class="peque">Dockerfile: <a
                   href="https://github.com/bitnami/bitnami-docker-symfony/blob/master/5.4/debian-10/Dockerfile">ejemplo</a>
               </li>
             </ul>
@@ -180,7 +186,7 @@
       </section>
 
       <section>
-        <h2>Instalación de <em>Symfony CLI></em></h2>
+        <h2>Instalación de <em>Symfony CLI</em></h2>
 
         <p><em>Symfony CLI</em> (Command Line Interface) se utiliza para poder lanzar los comandos de Symfony</p>
         <p>Para instalar Symfony-CLI <a href="https://symfony.com/download#step-1-install-symfony-cli">seguimos esta
@@ -214,7 +220,7 @@
 
 
       <section>
-        <h2>Proyecto Symfony</h2>
+        <h2>Proyecto <em>Symfony</em></h2>
         <p>Usamos el proyecto que queramos. En este ejemplo:<br />
           <a class="peque"
             href="https://github.com/braisarias/my-luckynumber-symfony">https://github.com/braisarias/my-luckynumber-symfony</a>
@@ -222,12 +228,12 @@
       </section>
 
       <section>
-        <h2>Fichero de configuración</h2>
+        <h2>Fichero de <em>configuración</em></h2>
         <p>En el <span class="command">docker-compose.yml</span> (<a
             href="https://github.com/braisarias/my-luckynumber-symfony/blob/main/docker-compose.yml">ejemplo</a>) se
           define que necesita nuestra aplicación, por ejemplo:
         </p>
-        <ul>
+        <ul class="peque">
           <li>Apache</li>
           <li>PHP</li>
           <li>Symfony</li>
@@ -244,16 +250,22 @@
       </section>
       <section>
         <h2><em>Construír</em> contenedor y <em>ejecutarlo</em></h2>
-        <p class="peque">Como último paso ejecutamos el contenedor</p>
-        <p class="peque">Con el comando <span class="command azul">docker-compose up -d</span> se construye(n) y se
-          lanza(n) el/los contenedor(es) necesarios en segundo plano
+        <ul class="peque">
+          <li>
+            Como último paso ejecutamos el contenedor
+          </li>
+          <li>
+            Con el comando <span class="command azul peque">docker-compose up -d</span> se construye(n) y se
+            lanza(n) el/los contenedor(es) necesarios en segundo plano
+          </li>
+        </ul>
         </p>
       </section>
 
       <section>
         <h2>¡Ya <em>está</em>!</h2>
-        <p class="peque">
-          Ya está desplegada nuestra aplicación, podemos probarla accediendo a la URL:<br /> <a class="command"
+        <p>
+          Ya está desplegada nuestra aplicación,<br />podemos probarla accediendo a la URL:<br /> <a class="command"
             href="http://localhost/">http://localhost/</a>
         </p>
       </section>
